@@ -1,0 +1,55 @@
+﻿<Window x:Class="MailMerge2000.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MailMerge2000" SizeToContent="WidthAndHeight"
+        Icon="../Outlook.ico">
+  <Grid Margin="5">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="40" />
+    </Grid.RowDefinitions>
+    
+    <StackPanel Grid.Row="0">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition MinHeight="450" Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="150" />
+          <ColumnDefinition Width="10" />
+          <ColumnDefinition MinWidth="450" />
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Content="Open Excel File" Height="40" Name="ButtonOopenExcel" Click="ButtonOopenExcel_OnClick" />
+        <Label Grid.Row="0" Grid.Column="2" Name="LabelFileName" Content="No Excel File Loaded" VerticalAlignment="Center" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Select Excel Worksheet:" VerticalAlignment="Center" />
+        <ComboBox Grid.Row="1" Grid.Column="2" Name="ComboBoxWorksheets" Margin="0 5" Height="30"
+                  VerticalAlignment="Center" VerticalContentAlignment="Center"
+                  SelectionChanged="ComboBoxWorksheet_OnSelectionChanged"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Select Outlook Template:" VerticalAlignment="Center" />
+        <ComboBox Grid.Row="2" Grid.Column="2" Name="ComboBoxTemplates" Margin="0 5" Height="30"
+                  VerticalAlignment="Center" VerticalContentAlignment="Center"
+                  SelectionChanged="ComboBoxTemplates_OnSelectionChanged"/>
+        
+        <DataGrid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Name="GridMain" Margin="0 0 0 5"
+                 ItemsSource="{Binding}" >
+          
+        </DataGrid>
+
+      </Grid>
+      
+    </StackPanel>
+
+    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+      <Button Content="Create and Save Mail" Width="180" Margin="5 0 0 0" Name="ButtonSave" Click="ButtonSave_OnClick" />
+      <Button Content="Send Mail" Width="80" Margin="5 0 0 0" Name="ButtonOk" Click="ButtonOk_OnClick" />
+      <Button Content="Close" Width="80" Margin="5 0 0 0" Name="ButtonCancel" Click="ButtonCancel_OnClick" />
+
+    </StackPanel>
+
+  </Grid>
+</Window>

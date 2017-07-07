@@ -98,7 +98,7 @@ namespace MailMerge2000.Data
     {
       try
       {
-        // Store the Excel processes before opening.
+        // Store the Outlook processes before opening.
         Process[] m_processesBefore = Process.GetProcessesByName("outlook");
         App = new Application();
         Process[] m_processesAfter = Process.GetProcessesByName("outlook");
